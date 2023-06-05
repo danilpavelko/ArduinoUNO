@@ -1,14 +1,31 @@
-int ledpin = 13;
+void setup()
+ {
+   pinMode(PORTD0, OUTPUT);
+   pinMode(PORTD1, OUTPUT);
+   pinMode(PORTD2, OUTPUT);
+   pinMode(PORTD3, OUTPUT);
+   pinMode(PORTD4, OUTPUT);
+   pinMode(PORTD5, OUTPUT);
+   pinMode(PORTD6, OUTPUT);
+   pinMode(PORTD7, OUTPUT);
+ }
+ 
+int flag = 1;
 
-void setup() {
-	// put your setup code here, to run once:
-	pinMode(ledpin, OUTPUT);
-}
-
-void loop() {
-	// put your main code here, to run repeatedly:
-	digitalWrite(ledpin, HIGH);
-	delay(1000);
-	digitalWrite(ledpin, LOW);
-	delay(1000);
+void loop()
+{
+  if(flag == 1){
+    for(int pin = 0; pin < 8; pin++) 
+    {
+      digitalWrite(pin, HIGH); 
+	    delay(500);                   
+    }
+      
+    for(int pin = 7; pin > 0; pin--) 
+    {
+      digitalWrite(pin, LOW);  
+      delay(500);                 
+    } 
+  flag = 0;
+  }
 }
